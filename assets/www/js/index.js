@@ -27,6 +27,8 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+		document.addEventListener('offline', this.onDeviceOffline, false);
+		document.addEventListener('online', this.onDeviceOnline, false);
     },
     // deviceready Event Handler
     //
@@ -34,6 +36,12 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+    },
+	onDeviceOffline: function() {
+		window.plugins.statusBarNotification.clear();
+    },
+	onDeviceOnline: function() {
+        window.plugins.statusBarNotification.notify("HotSpot", 'Active');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

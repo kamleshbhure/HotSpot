@@ -17,20 +17,22 @@
        under the License.
  */
 
-package org.apache.cordova.example;
+package com.hotspot.main;
 
 import android.os.Bundle;
+import com.hotspot.main.*;
 import org.apache.cordova.*;
+import com.phonegap.plugin.*;
 
-public class example extends DroidGap
+public class Main extends DroidGap
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         // Set by <content src="index.html" /> in config.xml
-        super.loadUrl(Config.getStartUrl());
-        //super.loadUrl("file:///android_asset/www/index.html")
+        //super.loadUrl(Config.getStartUrl());
+        super.loadUrl("file:///android_asset/www/index.html");
     }
 }
 
